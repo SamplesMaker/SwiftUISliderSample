@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var displayValue = 0.0
+    
+    var maximunValue = 100.0
+    var minimunValue = 0.0
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            HStack {
+                Text("\(Int(minimunValue))")
+                Slider(value: $displayValue, in: minimunValue ... maximunValue)
+                Text("\(Int(maximunValue))")
+            }.padding()
+            
+            Text("Current Value is \(Int(displayValue))").padding()
+        }
     }
 }
 
